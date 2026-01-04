@@ -11,10 +11,7 @@ A simple utility app that helps you and your friends settle poker games effortle
 - Track who owes whom
 - Calculate the minimum number of transactions needed to settle up
 
-![Screenshot 1](screenshots/Screenshot%201.png)
-![Screenshot 2](screenshots/Screenshot%202.png)
-![Screenshot 3](screenshots/Screenshot%203.png)
-![Screenshot 4](screenshots/Screenshot%204.png)
+<img src="screenshots/Screenshot%201.png" width="200"/> <img src="screenshots/Screenshot%202.png" width="200"/> <img src="screenshots/Screenshot%203.png" width="200"/> <img src="screenshots/Screenshot%204.png" width="200"/>
 
 ## Support
 
