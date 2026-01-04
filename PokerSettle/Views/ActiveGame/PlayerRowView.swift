@@ -24,7 +24,7 @@ struct PlayerRowView: View {
 
                 Spacer()
 
-                if player.finalChipCount > 0 && player.buyInCount > 0 {
+                if player.buyInCount > 0 {
                     Text(player.netAmount.asCurrency())
                         .font(.subheadline)
                         .fontWeight(.semibold)

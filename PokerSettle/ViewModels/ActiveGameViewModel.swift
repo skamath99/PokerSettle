@@ -48,12 +48,6 @@ class ActiveGameViewModel {
         saveContext(modelContext)
     }
 
-    func completeGame(in modelContext: ModelContext) {
-        game.isActive = false
-        game.completedAt = Date()
-        saveContext(modelContext)
-    }
-
     private func saveContext(_ context: ModelContext) {
         do {
             try context.save()
