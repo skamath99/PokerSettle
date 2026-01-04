@@ -1,0 +1,567 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		237C228F2EEF7B4200A5C2BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 237C22762EEF7B4200A5C2BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 237C227D2EEF7B4200A5C2BC;
+			remoteInfo = PokerSettle;
+		};
+		237C22992EEF7B4200A5C2BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 237C22762EEF7B4200A5C2BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 237C227D2EEF7B4200A5C2BC;
+			remoteInfo = PokerSettle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		237C227E2EEF7B4200A5C2BC /* PokerSettle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokerSettle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		237C228E2EEF7B4200A5C2BC /* PokerSettleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokerSettleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		237C22982EEF7B4200A5C2BC /* PokerSettleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokerSettleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		237C22802EEF7B4200A5C2BC /* PokerSettle */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = PokerSettle;
+			sourceTree = "<group>";
+		};
+		237C22912EEF7B4200A5C2BC /* PokerSettleTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = PokerSettleTests;
+			sourceTree = "<group>";
+		};
+		237C229B2EEF7B4200A5C2BC /* PokerSettleUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = PokerSettleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		237C227B2EEF7B4200A5C2BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		237C228B2EEF7B4200A5C2BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		237C22952EEF7B4200A5C2BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		237C22752EEF7B4200A5C2BC = {
+			isa = PBXGroup;
+			children = (
+				237C22802EEF7B4200A5C2BC /* PokerSettle */,
+				237C22912EEF7B4200A5C2BC /* PokerSettleTests */,
+				237C229B2EEF7B4200A5C2BC /* PokerSettleUITests */,
+				237C227F2EEF7B4200A5C2BC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		237C227F2EEF7B4200A5C2BC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				237C227E2EEF7B4200A5C2BC /* PokerSettle.app */,
+				237C228E2EEF7B4200A5C2BC /* PokerSettleTests.xctest */,
+				237C22982EEF7B4200A5C2BC /* PokerSettleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		237C227D2EEF7B4200A5C2BC /* PokerSettle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 237C22A22EEF7B4300A5C2BC /* Build configuration list for PBXNativeTarget "PokerSettle" */;
+			buildPhases = (
+				237C227A2EEF7B4200A5C2BC /* Sources */,
+				237C227B2EEF7B4200A5C2BC /* Frameworks */,
+				237C227C2EEF7B4200A5C2BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				237C22802EEF7B4200A5C2BC /* PokerSettle */,
+			);
+			name = PokerSettle;
+			packageProductDependencies = (
+			);
+			productName = PokerSettle;
+			productReference = 237C227E2EEF7B4200A5C2BC /* PokerSettle.app */;
+			productType = "com.apple.product-type.application";
+		};
+		237C228D2EEF7B4200A5C2BC /* PokerSettleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 237C22A52EEF7B4300A5C2BC /* Build configuration list for PBXNativeTarget "PokerSettleTests" */;
+			buildPhases = (
+				237C228A2EEF7B4200A5C2BC /* Sources */,
+				237C228B2EEF7B4200A5C2BC /* Frameworks */,
+				237C228C2EEF7B4200A5C2BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				237C22902EEF7B4200A5C2BC /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				237C22912EEF7B4200A5C2BC /* PokerSettleTests */,
+			);
+			name = PokerSettleTests;
+			packageProductDependencies = (
+			);
+			productName = PokerSettleTests;
+			productReference = 237C228E2EEF7B4200A5C2BC /* PokerSettleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		237C22972EEF7B4200A5C2BC /* PokerSettleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 237C22A82EEF7B4300A5C2BC /* Build configuration list for PBXNativeTarget "PokerSettleUITests" */;
+			buildPhases = (
+				237C22942EEF7B4200A5C2BC /* Sources */,
+				237C22952EEF7B4200A5C2BC /* Frameworks */,
+				237C22962EEF7B4200A5C2BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				237C229A2EEF7B4200A5C2BC /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				237C229B2EEF7B4200A5C2BC /* PokerSettleUITests */,
+			);
+			name = PokerSettleUITests;
+			packageProductDependencies = (
+			);
+			productName = PokerSettleUITests;
+			productReference = 237C22982EEF7B4200A5C2BC /* PokerSettleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		237C22762EEF7B4200A5C2BC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					237C227D2EEF7B4200A5C2BC = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					237C228D2EEF7B4200A5C2BC = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 237C227D2EEF7B4200A5C2BC;
+					};
+					237C22972EEF7B4200A5C2BC = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 237C227D2EEF7B4200A5C2BC;
+					};
+				};
+			};
+			buildConfigurationList = 237C22792EEF7B4200A5C2BC /* Build configuration list for PBXProject "PokerSettle" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 237C22752EEF7B4200A5C2BC;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 237C227F2EEF7B4200A5C2BC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				237C227D2EEF7B4200A5C2BC /* PokerSettle */,
+				237C228D2EEF7B4200A5C2BC /* PokerSettleTests */,
+				237C22972EEF7B4200A5C2BC /* PokerSettleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		237C227C2EEF7B4200A5C2BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		237C228C2EEF7B4200A5C2BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		237C22962EEF7B4200A5C2BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		237C227A2EEF7B4200A5C2BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		237C228A2EEF7B4200A5C2BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		237C22942EEF7B4200A5C2BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		237C22902EEF7B4200A5C2BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 237C227D2EEF7B4200A5C2BC /* PokerSettle */;
+			targetProxy = 237C228F2EEF7B4200A5C2BC /* PBXContainerItemProxy */;
+		};
+		237C229A2EEF7B4200A5C2BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 237C227D2EEF7B4200A5C2BC /* PokerSettle */;
+			targetProxy = 237C22992EEF7B4200A5C2BC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		237C22A02EEF7B4300A5C2BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		237C22A12EEF7B4300A5C2BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		237C22A32EEF7B4300A5C2BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PokerSettle/Preview Content\"";
+				DEVELOPMENT_TEAM = 547M5QUW76;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = PokerSettle;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sankandmir.PokerSettle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		237C22A42EEF7B4300A5C2BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PokerSettle/Preview Content\"";
+				DEVELOPMENT_TEAM = 547M5QUW76;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = PokerSettle;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sankandmir.PokerSettle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		237C22A62EEF7B4300A5C2BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 547M5QUW76;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sankandmir.PokerSettleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokerSettle.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PokerSettle";
+			};
+			name = Debug;
+		};
+		237C22A72EEF7B4300A5C2BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 547M5QUW76;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sankandmir.PokerSettleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokerSettle.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PokerSettle";
+			};
+			name = Release;
+		};
+		237C22A92EEF7B4300A5C2BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 547M5QUW76;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sankandmir.PokerSettleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PokerSettle;
+			};
+			name = Debug;
+		};
+		237C22AA2EEF7B4300A5C2BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 547M5QUW76;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sankandmir.PokerSettleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PokerSettle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		237C22792EEF7B4200A5C2BC /* Build configuration list for PBXProject "PokerSettle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				237C22A02EEF7B4300A5C2BC /* Debug */,
+				237C22A12EEF7B4300A5C2BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		237C22A22EEF7B4300A5C2BC /* Build configuration list for PBXNativeTarget "PokerSettle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				237C22A32EEF7B4300A5C2BC /* Debug */,
+				237C22A42EEF7B4300A5C2BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		237C22A52EEF7B4300A5C2BC /* Build configuration list for PBXNativeTarget "PokerSettleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				237C22A62EEF7B4300A5C2BC /* Debug */,
+				237C22A72EEF7B4300A5C2BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		237C22A82EEF7B4300A5C2BC /* Build configuration list for PBXNativeTarget "PokerSettleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				237C22A92EEF7B4300A5C2BC /* Debug */,
+				237C22AA2EEF7B4300A5C2BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 237C22762EEF7B4200A5C2BC /* Project object */;
+}
