@@ -83,6 +83,12 @@ struct SettlementView: View {
                         dismiss()
                     }
                 }
+                ToolbarItem(placement: .topBarTrailing) {
+                    ShareLink(item: viewModel.shareText) {
+                        Label("Share", systemImage: "square.and.arrow.up")
+                    }
+                    .disabled(!viewModel.validationResult.isValid)
+                }
             }
             .alert("Error", isPresented: $viewModel.showError) {
                 Button("OK") { }

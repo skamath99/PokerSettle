@@ -295,6 +295,76 @@ struct PokerSettleTests {
         #expect(game.totalChips == 0)
     }
 
+    // MARK: - SettlementViewModel.shareText Tests
+
+    @Test("shareText includes game name and total pot")
+    func testShareTextIncludesGameInfo() throws {
+        let game = Game(name: "Friday Night Poker", buyInAmount: 10.0, chipCount: 100)
+
+        let alice = PlayerSession(playerName: "Alice", buyInCount: 1, finalChipCount: 150)
+        alice.game = game
+        let bob = PlayerSession(playerName: "Bob", buyInCount: 1, finalChipCount: 50)
+        bob.game = game
+        game.players = [alice, bob]
+
+        let viewModel = SettlementViewModel(game: game)
+        let text = viewModel.shareText
+
+        #expect(text.contains("Friday Night Poker"))
+        #expect(text.contains(game.totalPot.asCurrency()))
+    }
+
+    @Test("shareText formats settlement rows as 'X pays Y amount'")
+    func testShareTextFormatsSettlements() throws {
+        let game = Game(buyInAmount: 10.0, chipCount: 100)
+
+        let alice = PlayerSession(playerName: "Alice", buyInCount: 1, finalChipCount: 150)
+        alice.game = game
+        let bob = PlayerSession(playerName: "Bob", buyInCount: 1, finalChipCount: 50)
+        bob.game = game
+        game.players = [alice, bob]
+
+        let viewModel = SettlementViewModel(game: game)
+        let text = viewModel.shareText
+
+        #expect(text.contains("Bob pays Alice"))
+        #expect(text.contains(5.0.asCurrency()))
+    }
+
+    @Test("shareText with all players breaking even shows no payment lines")
+    func testShareTextBreakEven() throws {
+        let game = Game(buyInAmount: 10.0, chipCount: 100)
+
+        let alice = PlayerSession(playerName: "Alice", buyInCount: 1, finalChipCount: 100)
+        alice.game = game
+        let bob = PlayerSession(playerName: "Bob", buyInCount: 1, finalChipCount: 100)
+        bob.game = game
+        game.players = [alice, bob]
+
+        let viewModel = SettlementViewModel(game: game)
+        let text = viewModel.shareText
+
+        #expect(text.contains("broke even"))
+        #expect(!text.contains("pays"))
+    }
+
+    @Test("shareText uses displayName for unnamed game")
+    func testShareTextUsesDisplayName() throws {
+        let game = Game(buyInAmount: 10.0, chipCount: 100)
+
+        let alice = PlayerSession(playerName: "Alice", buyInCount: 1, finalChipCount: 100)
+        alice.game = game
+        let bob = PlayerSession(playerName: "Bob", buyInCount: 1, finalChipCount: 100)
+        bob.game = game
+        game.players = [alice, bob]
+
+        let viewModel = SettlementViewModel(game: game)
+        let text = viewModel.shareText
+
+        #expect(text.hasPrefix("Game: "))
+        #expect(text.contains(game.displayName))
+    }
+
     // MARK: - PlayerSession Model Tests
 
     @Test("Player total buy-in calculation")

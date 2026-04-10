@@ -86,6 +86,13 @@ struct GameDetailView: View {
         }
         .navigationTitle(game.displayName)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                ShareLink(item: shareText) {
+                    Label("Share", systemImage: "square.and.arrow.up")
+                }
+            }
+        }
     }
 
     private func reactivateGame() {
@@ -100,6 +107,21 @@ struct GameDetailView: View {
 
         try? modelContext.save()
         dismiss()
+    }
+
+    private var shareText: String {
+        var lines: [String] = []
+        lines.append("Game: \(game.displayName)")
+        lines.append("Total Pot: \(game.totalPot.asCurrency())")
+        if game.settlements.isEmpty {
+            lines.append("\nAll players broke even!")
+        } else {
+            lines.append("\nSettlements:")
+            for s in game.settlements {
+                lines.append("\(s.fromPlayerName) pays \(s.toPlayerName) \(s.amount.asCurrency())")
+            }
+        }
+        return lines.joined(separator: "\n")
     }
 
     private var formattedDate: String {
