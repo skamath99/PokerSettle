@@ -295,6 +295,57 @@ struct PokerSettleTests {
         #expect(game.totalChips == 0)
     }
 
+    // MARK: - Settlement.isPaid Tests
+
+    @Test("Settlement defaults to unpaid")
+    func testSettlementDefaultsUnpaid() throws {
+        let settlement = Settlement(fromPlayerName: "Bob", toPlayerName: "Alice", amount: 5.0)
+        #expect(!settlement.isPaid)
+    }
+
+    @Test("Settlement isPaid can be toggled")
+    func testSettlementIsPaidToggle() throws {
+        let settlement = Settlement(fromPlayerName: "Bob", toPlayerName: "Alice", amount: 5.0)
+        settlement.isPaid = true
+        #expect(settlement.isPaid)
+        settlement.isPaid = false
+        #expect(!settlement.isPaid)
+    }
+
+    @Test("SettlementViewModel totalPaid sums only paid settlements")
+    func testTotalPaidSumsOnlyPaid() throws {
+        let game = Game(buyInAmount: 10.0, chipCount: 100)
+
+        let alice = PlayerSession(playerName: "Alice", buyInCount: 1, finalChipCount: 200)
+        alice.game = game
+        let bob = PlayerSession(playerName: "Bob", buyInCount: 1, finalChipCount: 80)
+        bob.game = game
+        let charlie = PlayerSession(playerName: "Charlie", buyInCount: 1, finalChipCount: 20)
+        charlie.game = game
+        game.players = [alice, bob, charlie]
+
+        let viewModel = SettlementViewModel(game: game)
+        #expect(viewModel.totalPaid == 0)
+
+        viewModel.settlements.first?.isPaid = true
+        let firstAmount = viewModel.settlements.first?.amount ?? 0
+        #expect(abs(viewModel.totalPaid - firstAmount) < 0.01)
+    }
+
+    @Test("SettlementViewModel totalToPay sums all settlements")
+    func testTotalToPaySumsAll() throws {
+        let game = Game(buyInAmount: 10.0, chipCount: 100)
+
+        let alice = PlayerSession(playerName: "Alice", buyInCount: 1, finalChipCount: 150)
+        alice.game = game
+        let bob = PlayerSession(playerName: "Bob", buyInCount: 1, finalChipCount: 50)
+        bob.game = game
+        game.players = [alice, bob]
+
+        let viewModel = SettlementViewModel(game: game)
+        #expect(abs(viewModel.totalToPay - 5.0) < 0.01)
+    }
+
     // MARK: - SettlementViewModel.shareText Tests
 
     @Test("shareText includes game name and total pot")

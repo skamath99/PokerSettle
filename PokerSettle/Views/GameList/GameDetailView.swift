@@ -42,25 +42,36 @@ struct GameDetailView: View {
             }
 
             if !game.settlements.isEmpty {
-                Section("Settlements") {
+                Section {
                     ForEach(game.settlements) { settlement in
-                        HStack {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("\(settlement.fromPlayerName) → \(settlement.toPlayerName)")
-                                    .font(.subheadline)
+                        Button {
+                            settlement.isPaid.toggle()
+                            try? modelContext.save()
+                        } label: {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("\(settlement.fromPlayerName) → \(settlement.toPlayerName)")
+                                        .font(.subheadline)
+                                        .strikethrough(settlement.isPaid)
+                                        .foregroundStyle(settlement.isPaid ? .secondary : .primary)
 
-                                Text(settlement.amount.asCurrency())
-                                    .font(.headline)
-                            }
+                                    Text(settlement.amount.asCurrency())
+                                        .font(.headline)
+                                        .strikethrough(settlement.isPaid)
+                                        .foregroundStyle(settlement.isPaid ? .secondary : .primary)
+                                }
 
-                            Spacer()
+                                Spacer()
 
-                            if settlement.isPaid {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .foregroundStyle(.green)
+                                Image(systemName: settlement.isPaid ? "checkmark.circle.fill" : "circle")
+                                    .foregroundStyle(settlement.isPaid ? .green : .secondary)
                             }
                         }
+                        .buttonStyle(.plain)
                     }
+                } header: {
+                    let paidCount = game.settlements.filter(\.isPaid).count
+                    Text("Settlements (\(paidCount)/\(game.settlements.count) paid)")
                 }
             }
 
