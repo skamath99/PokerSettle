@@ -295,6 +295,84 @@ struct PokerSettleTests {
         #expect(game.totalChips == 0)
     }
 
+    // MARK: - ChipCalculator Tests
+
+    @Test("Chip calculator returns nil for invalid inputs")
+    func testChipCalculatorInvalidInputs() throws {
+        let denoms = [ChipCalculator.Denomination(value: 25, count: 100)]
+        #expect(ChipCalculator.calculate(denominations: denoms, players: 0, targetStack: 1000) == nil)
+        #expect(ChipCalculator.calculate(denominations: denoms, players: 4, targetStack: 0) == nil)
+        #expect(ChipCalculator.calculate(denominations: [], players: 4, targetStack: 1000) == nil)
+    }
+
+    @Test("Chip calculator basic two-denomination exact result")
+    func testChipCalculatorExactResult() throws {
+        let denoms = [
+            ChipCalculator.Denomination(value: 100, count: 40),  // 10 per player
+            ChipCalculator.Denomination(value: 25, count: 40)    // 10 per player
+        ]
+        let result = try #require(ChipCalculator.calculate(denominations: denoms, players: 4, targetStack: 1250))
+
+        #expect(result.isExact)
+        #expect(result.actualStack == 1250)
+        #expect(result.shortfall == 0)
+
+        let hundredRow = result.allocations.first { $0.denomination == 100 }
+        let twentyFiveRow = result.allocations.first { $0.denomination == 25 }
+        #expect(hundredRow?.chipsPerPlayer == 10)
+        #expect(twentyFiveRow?.chipsPerPlayer == 10)
+    }
+
+    @Test("Chip calculator reports shortfall when target can't be hit exactly")
+    func testChipCalculatorShortfall() throws {
+        // Only 100-value chips, target is 150 — can only assign 100
+        let denoms = [ChipCalculator.Denomination(value: 100, count: 4)]
+        let result = try #require(ChipCalculator.calculate(denominations: denoms, players: 4, targetStack: 150))
+
+        #expect(!result.isExact)
+        #expect(result.actualStack == 100)
+        #expect(result.shortfall == 50)
+    }
+
+    @Test("Chip calculator respects per-player chip limits")
+    func testChipCalculatorRespectsInventoryLimit() throws {
+        // 8 chips total, 4 players → max 2 per player despite target needing more
+        let denoms = [ChipCalculator.Denomination(value: 100, count: 8)]
+        let result = try #require(ChipCalculator.calculate(denominations: denoms, players: 4, targetStack: 1000))
+
+        let row = try #require(result.allocations.first { $0.denomination == 100 })
+        #expect(row.chipsPerPlayer == 2)
+        #expect(result.actualStack == 200)
+    }
+
+    @Test("Chip calculator assigns highest denomination first")
+    func testChipCalculatorHighestFirst() throws {
+        let denoms = [
+            ChipCalculator.Denomination(value: 25, count: 400),
+            ChipCalculator.Denomination(value: 100, count: 40)
+        ]
+        let result = try #require(ChipCalculator.calculate(denominations: denoms, players: 4, targetStack: 500))
+
+        // Should use 100s first: 5× 100 = 500, no 25s needed
+        #expect(result.allocations.count == 1)
+        #expect(result.allocations.first?.denomination == 100)
+        #expect(result.allocations.first?.chipsPerPlayer == 5)
+        #expect(result.isExact)
+    }
+
+    @Test("Chip calculator skips denominations with 0 chips per player after division")
+    func testChipCalculatorSkipsUnusableDenominations() throws {
+        // 3 chips of 100 for 4 players → 0 per player, should be skipped
+        let denoms = [
+            ChipCalculator.Denomination(value: 100, count: 3),
+            ChipCalculator.Denomination(value: 25, count: 100)
+        ]
+        let result = try #require(ChipCalculator.calculate(denominations: denoms, players: 4, targetStack: 500))
+
+        #expect(result.allocations.allSatisfy { $0.denomination != 100 })
+        #expect(result.allocations.first?.denomination == 25)
+    }
+
     // MARK: - Settlement.isPaid Tests
 
     @Test("Settlement defaults to unpaid")

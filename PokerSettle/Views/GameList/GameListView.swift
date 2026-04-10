@@ -5,6 +5,7 @@ struct GameListView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Game.createdAt, order: .reverse) private var games: [Game]
     @State private var showingNewGame = false
+    @State private var showingChipCalculator = false
 
     var activeGames: [Game] {
         games.filter { $0.isActive }
@@ -32,9 +33,19 @@ struct GameListView: View {
                         Image(systemName: "plus")
                     }
                 }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showingChipCalculator = true
+                    } label: {
+                        Image(systemName: "function")
+                    }
+                }
             }
             .sheet(isPresented: $showingNewGame) {
                 NewGameView()
+            }
+            .sheet(isPresented: $showingChipCalculator) {
+                ChipCalculatorView()
             }
         }
     }
