@@ -42,25 +42,36 @@ struct GameDetailView: View {
             }
 
             if !game.settlements.isEmpty {
-                Section("Settlements") {
+                Section {
                     ForEach(game.settlements) { settlement in
-                        HStack {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("\(settlement.fromPlayerName) → \(settlement.toPlayerName)")
-                                    .font(.subheadline)
+                        Button {
+                            settlement.isPaid.toggle()
+                            try? modelContext.save()
+                        } label: {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("\(settlement.fromPlayerName) → \(settlement.toPlayerName)")
+                                        .font(.subheadline)
+                                        .strikethrough(settlement.isPaid)
+                                        .foregroundStyle(settlement.isPaid ? .secondary : .primary)
 
-                                Text(settlement.amount.asCurrency())
-                                    .font(.headline)
-                            }
+                                    Text(settlement.amount.asCurrency())
+                                        .font(.headline)
+                                        .strikethrough(settlement.isPaid)
+                                        .foregroundStyle(settlement.isPaid ? .secondary : .primary)
+                                }
 
-                            Spacer()
+                                Spacer()
 
-                            if settlement.isPaid {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .foregroundStyle(.green)
+                                Image(systemName: settlement.isPaid ? "checkmark.circle.fill" : "circle")
+                                    .foregroundStyle(settlement.isPaid ? .green : .secondary)
                             }
                         }
+                        .buttonStyle(.plain)
                     }
+                } header: {
+                    let paidCount = game.settlements.filter(\.isPaid).count
+                    Text("Settlements (\(paidCount)/\(game.settlements.count) paid)")
                 }
             }
 
@@ -86,6 +97,13 @@ struct GameDetailView: View {
         }
         .navigationTitle(game.displayName)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                ShareLink(item: shareText) {
+                    Label("Share", systemImage: "square.and.arrow.up")
+                }
+            }
+        }
     }
 
     private func reactivateGame() {
@@ -100,6 +118,21 @@ struct GameDetailView: View {
 
         try? modelContext.save()
         dismiss()
+    }
+
+    private var shareText: String {
+        var lines: [String] = []
+        lines.append("Game: \(game.displayName)")
+        lines.append("Total Pot: \(game.totalPot.asCurrency())")
+        if game.settlements.isEmpty {
+            lines.append("\nAll players broke even!")
+        } else {
+            lines.append("\nSettlements:")
+            for s in game.settlements {
+                lines.append("\(s.fromPlayerName) pays \(s.toPlayerName) \(s.amount.asCurrency())")
+            }
+        }
+        return lines.joined(separator: "\n")
     }
 
     private var formattedDate: String {

@@ -67,4 +67,19 @@ class SettlementViewModel {
     var totalToPay: Double {
         settlements.reduce(0) { $0 + $1.amount }
     }
+
+    var shareText: String {
+        var lines: [String] = []
+        lines.append("Game: \(game.displayName)")
+        lines.append("Total Pot: \(game.totalPot.asCurrency())")
+        if settlements.isEmpty {
+            lines.append("\nAll players broke even!")
+        } else {
+            lines.append("\nSettlements:")
+            for s in settlements {
+                lines.append("\(s.fromPlayerName) pays \(s.toPlayerName) \(s.amount.asCurrency())")
+            }
+        }
+        return lines.joined(separator: "\n")
+    }
 }
