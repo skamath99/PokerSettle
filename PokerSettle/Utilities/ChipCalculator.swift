@@ -28,28 +28,51 @@ enum ChipCalculator {
         var shortfall: Int { targetStack - actualStack }
     }
 
-    /// Greedily assigns chips from highest denomination down to hit `targetStack` per player.
+    /// Distributes chips evenly across all denominations, ensuring players have
+    /// a healthy mix rather than a stack dominated by one chip value.
+    /// Phase 1: give each denomination the same base count N (where N × Σvalues ≤ target).
+    /// Phase 2: fill any remainder with smaller denominations, smallest first.
     static func calculate(denominations: [Denomination], players: Int, targetStack: Int) -> Result? {
         guard players > 0, targetStack > 0 else { return nil }
-        let valid = denominations.filter { $0.value > 0 && $0.count > 0 }
+        let valid = denominations
+            .filter { $0.value > 0 && $0.count > 0 }
+            .sorted { $0.value < $1.value }  // smallest first
         guard !valid.isEmpty else { return nil }
 
-        var remaining = targetStack
-        var allocations: [AllocationRow] = []
+        let sumValues = valid.reduce(0) { $0 + $1.value }
+        let maxByAvailability = valid.reduce(Int.max) { min($0, $1.count / players) }
+        let baseCount = min(maxByAvailability, sumValues > 0 ? targetStack / sumValues : 0)
 
-        for denom in valid.sorted(by: { $0.value > $1.value }) {
-            guard remaining > 0 else { break }
-            let maxPerPlayer = denom.count / players
-            guard maxPerPlayer > 0 else { continue }
-            let chips = min(maxPerPlayer, remaining / denom.value)
-            guard chips > 0 else { continue }
-            allocations.append(AllocationRow(denomination: denom.value, chipsPerPlayer: chips))
-            remaining -= chips * denom.value
+        var chipCounts = [Int: Int]()
+        var remaining = targetStack
+
+        for denom in valid where baseCount > 0 {
+            chipCounts[denom.value] = baseCount
+            remaining -= baseCount * denom.value
         }
+
+        // Fill remainder greedily from smallest denomination upward
+        for denom in valid where remaining > 0 {
+            let used = chipCounts[denom.value] ?? 0
+            let extra = min(denom.count / players - used, remaining / denom.value)
+            if extra > 0 {
+                chipCounts[denom.value] = used + extra
+                remaining -= extra * denom.value
+            }
+        }
+
+        let allocations = valid
+            .compactMap { denom -> AllocationRow? in
+                guard let count = chipCounts[denom.value], count > 0 else { return nil }
+                return AllocationRow(denomination: denom.value, chipsPerPlayer: count)
+            }
+            .sorted { $0.denomination > $1.denomination }
+
+        let actualStack = allocations.reduce(0) { $0 + $1.subtotal }
 
         return Result(
             allocations: allocations,
-            actualStack: targetStack - remaining,
+            actualStack: actualStack,
             targetStack: targetStack
         )
     }

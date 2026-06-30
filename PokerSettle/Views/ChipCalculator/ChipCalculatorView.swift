@@ -42,7 +42,7 @@ struct ChipCalculatorView: View {
     private var setupSection: some View {
         Section {
             Stepper("Players: \(players)", value: $players, in: 2...20)
-            LabeledContent("Target Stack") {
+            LabeledContent("Buy-in ($)") {
                 TextField("1000", value: $targetStack, format: .number)
                     .keyboardType(.numberPad)
                     .multilineTextAlignment(.trailing)
@@ -50,7 +50,7 @@ struct ChipCalculatorView: View {
         } header: {
             Text("Setup")
         } footer: {
-            Text("The total chip value each player starts with.")
+            Text("The dollar amount each player buys in for.")
         }
     }
 
@@ -116,7 +116,7 @@ struct ChipCalculatorView: View {
                 }
             }
             HStack {
-                Text("Stack per player")
+                Text("Total per player")
                 Spacer()
                 Text("\(result.actualStack)")
                     .fontWeight(.semibold)

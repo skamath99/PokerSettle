@@ -345,19 +345,21 @@ struct PokerSettleTests {
         #expect(result.actualStack == 200)
     }
 
-    @Test("Chip calculator assigns highest denomination first")
-    func testChipCalculatorHighestFirst() throws {
+    @Test("Chip calculator distributes chips evenly across denominations")
+    func testChipCalculatorEvenDistribution() throws {
         let denoms = [
             ChipCalculator.Denomination(value: 25, count: 400),
             ChipCalculator.Denomination(value: 100, count: 40)
         ]
         let result = try #require(ChipCalculator.calculate(denominations: denoms, players: 4, targetStack: 500))
 
-        // Should use 100s first: 5× 100 = 500, no 25s needed
-        #expect(result.allocations.count == 1)
-        #expect(result.allocations.first?.denomination == 100)
-        #expect(result.allocations.first?.chipsPerPlayer == 5)
+        // Equal-count base: 4× $100 + 4× $25 = 400 + 100 = 500
         #expect(result.isExact)
+        #expect(result.allocations.count == 2)
+        let hundredRow = result.allocations.first { $0.denomination == 100 }
+        let twentyFiveRow = result.allocations.first { $0.denomination == 25 }
+        #expect(hundredRow?.chipsPerPlayer == 4)
+        #expect(twentyFiveRow?.chipsPerPlayer == 4)
     }
 
     @Test("Chip calculator skips denominations with 0 chips per player after division")
