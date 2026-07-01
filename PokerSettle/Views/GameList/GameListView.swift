@@ -6,6 +6,7 @@ struct GameListView: View {
     @Query(sort: \Game.createdAt, order: .reverse) private var games: [Game]
     @State private var showingNewGame = false
     @State private var showingChipCalculator = false
+    @State private var showingVirtualTable = false
 
     var activeGames: [Game] {
         games.filter { $0.isActive }
@@ -40,12 +41,22 @@ struct GameListView: View {
                         Image(systemName: "function")
                     }
                 }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showingVirtualTable = true
+                    } label: {
+                        Image(systemName: "person.2.wave.2")
+                    }
+                }
             }
             .sheet(isPresented: $showingNewGame) {
                 NewGameView()
             }
             .sheet(isPresented: $showingChipCalculator) {
                 ChipCalculatorView()
+            }
+            .fullScreenCover(isPresented: $showingVirtualTable) {
+                VirtualTableView()
             }
         }
     }
